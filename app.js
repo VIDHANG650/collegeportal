@@ -5,12 +5,16 @@ const port = 3000
 const web = require('./routes/web')
 const connectDb = require('./database/connectDb')
 const fileUpload = require("express-fileupload");
+const cookieParser = require('cookie-parser')
 
 
 
 
 //image upload
 app.use(fileUpload({useTempFiles : true}))
+
+//token get cookie
+app.use(cookieParser())
 
 // view ejs set
 app.set('view engine', 'ejs')
